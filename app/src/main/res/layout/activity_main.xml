@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wallpaper_0"
+    android:orientation="vertical"
+    tools:context=".ui.activity.MainActivity">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:elevation="0dp" />
+
+    <net.lucode.hackware.magicindicator.MagicIndicator
+        android:id="@+id/view_magic_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:layout_marginTop="50dp"
+        android:elevation="0dp" />
+
+    <LinearLayout
+        android:id="@+id/home_layout_title_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/main_action_menu"
+                style="@style/title_img_style"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/actionbar_menu" />
+
+            <ImageView
+                android:id="@+id/main_action_share"
+                style="@style/title_img_style"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/actionbar_share" />
+        </RelativeLayout>
+    </LinearLayout>
+</FrameLayout>

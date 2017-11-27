@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">极速天气</string>
+    <string name="weather_address">地点</string>
+
+</resources>

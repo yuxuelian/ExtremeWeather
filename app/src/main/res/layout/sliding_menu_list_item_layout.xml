@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:clickable="true"
+    android:background="?attr/selectableItemBackground"
+    android:layout_height="40dp">
+
+    <ImageView
+        android:id="@+id/sliding_list_item_loc"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/ic_location" />
+
+    <TextView
+        android:id="@+id/sliding_list_item_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dp"
+        android:text="城市"
+        android:textColor="@color/themeColor"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/sliding_list_item_weather_ic"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/ic_add_city" />
+
+    <TextView
+        android:id="@+id/sliding_list_item_weather_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:layout_toLeftOf="@+id/sliding_list_item_weather_ic"
+        android:text="温度"
+        android:textColor="@color/themeColor"
+        android:textSize="20sp" />
+</RelativeLayout>

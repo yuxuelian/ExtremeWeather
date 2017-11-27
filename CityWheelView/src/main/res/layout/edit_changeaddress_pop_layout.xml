@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_myinfo_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@null"
+            android:text="取消"
+            android:textColor="#34CDB8"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btn_myinfo_sure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:text="完成"
+            android:textColor="#34CDB8"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#34CDB8" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dip"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.qit.citywheelview.wheelview.WheelView
+            android:id="@+id/wv_address_province"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1" />
+
+        <com.qit.citywheelview.wheelview.WheelView
+            android:id="@+id/wv_address_city"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1" />
+
+        <com.qit.citywheelview.wheelview.WheelView
+            android:id="@+id/wv_address_area"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1" />
+    </LinearLayout>
+</LinearLayout>

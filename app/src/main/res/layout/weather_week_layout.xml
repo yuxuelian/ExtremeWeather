@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/weather_week_area"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:background="@color/half_transparent"
+    android:orientation="vertical"
+    android:paddingBottom="5dp">
+
+    <!--多天预报-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="多天预报"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="#55ffffff" />
+
+    </LinearLayout>
+
+    <!--星期-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/weather_week_weather_week1"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="明天" />
+
+        <TextView
+            android:id="@+id/weather_week_weather_week2"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="后天" />
+
+        <TextView
+            android:id="@+id/weather_week_weather_week3"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="星期二" />
+
+        <TextView
+            android:id="@+id/weather_week_weather_week4"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="星期三" />
+
+        <TextView
+            android:id="@+id/weather_week_weather_week5"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="星期四" />
+
+        <TextView
+            android:id="@+id/weather_week_weather_week6"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="星期五" />
+    </LinearLayout>
+
+    <!--日期-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/weather_week_weather_date1"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="11/25"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/weather_week_weather_date2"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="11/25"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/weather_week_weather_date3"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="11/25"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/weather_week_weather_date4"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="11/25"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/weather_week_weather_date5"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="11/25"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/weather_week_weather_date6"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="11/25"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <!--天气图标-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/weather_week_daysIcon1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_100" />
+
+        <ImageView
+            android:id="@+id/weather_week_daysIcon2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_100" />
+
+        <ImageView
+            android:id="@+id/weather_week_daysIcon3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_100" />
+
+        <ImageView
+            android:id="@+id/weather_week_daysIcon4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_100" />
+
+        <ImageView
+            android:id="@+id/weather_week_daysIcon5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_100" />
+
+        <ImageView
+            android:id="@+id/weather_week_daysIcon6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_100" />
+
+    </LinearLayout>
+
+    <!--天气-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/weather_week_daysText1"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="晴"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/weather_week_daysText2"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="晴"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/weather_week_daysText3"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="晴"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/weather_week_daysText4"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="晴"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/weather_week_daysText5"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="晴"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/weather_week_daysText6"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="晴"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <!--天气折线图绘制-->
+    <com.as.weather.custom.view.LineChartView
+        android:id="@+id/weather_week_weather_line_chart"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp" />
+
+    <!--天气-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/weather_week_nightsText1"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="昨天" />
+
+        <TextView
+            android:id="@+id/weather_week_nightsText2"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="昨天" />
+
+        <TextView
+            android:id="@+id/weather_week_nightsText3"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="昨天" />
+
+        <TextView
+            android:id="@+id/weather_week_nightsText4"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="昨天" />
+
+        <TextView
+            android:id="@+id/weather_week_nightsText5"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="昨天" />
+
+        <TextView
+            android:id="@+id/weather_week_nightsText6"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="昨天" />
+    </LinearLayout>
+
+    <!--天气图标-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/weather_week_nightsIcon1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_100" />
+
+        <ImageView
+            android:id="@+id/weather_week_nightsIcon2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_100" />
+
+        <ImageView
+            android:id="@+id/weather_week_nightsIcon3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_100" />
+
+        <ImageView
+            android:id="@+id/weather_week_nightsIcon4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_100" />
+
+        <ImageView
+            android:id="@+id/weather_week_nightsIcon5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_100" />
+
+        <ImageView
+            android:id="@+id/weather_week_nightsIcon6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_100" />
+    </LinearLayout>
+
+    <!--风向-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/weather_week_windText1"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="南风"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/weather_week_windText2"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="南风"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/weather_week_windText3"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="南风"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/weather_week_windText4"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="南风"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/weather_week_windText5"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="南风"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/weather_week_windText6"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="南风"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!--风级-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/weather_week_windSizeText1"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="微风"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/weather_week_windSizeText2"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="微风"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/weather_week_windSizeText3"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="微风"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/weather_week_windSizeText4"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="微风"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/weather_week_windSizeText5"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="微风"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/weather_week_windSizeText6"
+            style="@style/text_style"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="微风"
+            android:textSize="12sp" />
+    </LinearLayout>
+</LinearLayout>
