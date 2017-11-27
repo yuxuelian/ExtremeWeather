@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/wallpaper_0"
     android:orientation="vertical"
-    tools:context=".ui.activity.MainActivity">
+    tools:context="com.base.weather.activity.MainActivity">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager"

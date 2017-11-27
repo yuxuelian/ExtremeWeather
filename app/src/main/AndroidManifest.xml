@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.as.weather">
+    package="com.base.weather">
 
     <!--用于进行网络定位-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -43,9 +43,10 @@
 
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="4a13cee1fdab652952db1e0371d8d14c" />
+            android:value="e8d233b004338fa2806e3c50211957b5" />
 
-        <activity android:name=".ui.activity.SplashActivity">
+        <activity android:name=".activity.SplashActivity"
+            android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,12 +55,12 @@
         </activity>
 
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name=".activity.MainActivity"
             android:launchMode="singleInstance" />
 
-        <activity android:name=".ui.activity.SettingActivity" />
+        <activity android:name=".activity.SettingActivity" />
 
-        <activity android:name=".ui.activity.AboutActivity" />
+        <activity android:name=".activity.AboutActivity" />
 
         <receiver android:name=".widget.NewAppWidget">
             <intent-filter>
@@ -76,6 +77,5 @@
         <service android:name=".service.WidgetUpdateService" />
 
         <service android:name="com.amap.api.location.APSService" />
-
     </application>
 </manifest>

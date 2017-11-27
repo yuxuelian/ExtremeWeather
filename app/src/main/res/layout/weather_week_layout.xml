@@ -251,7 +251,7 @@
     </LinearLayout>
 
     <!--天气折线图绘制-->
-    <com.as.weather.custom.view.LineChartView
+    <com.base.customview.LineChartView
         android:id="@+id/weather_week_weather_line_chart"
         android:layout_width="match_parent"
         android:layout_height="150dp"

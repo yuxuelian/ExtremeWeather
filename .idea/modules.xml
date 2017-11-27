@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CityWheelView/CityWheelView.iml" filepath="$PROJECT_DIR$/CityWheelView/CityWheelView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CustomView/CustomView.iml" filepath="$PROJECT_DIR$/CustomView/CustomView.iml" />
       <module fileurl="file://$PROJECT_DIR$/ExtremeWeather.iml" filepath="$PROJECT_DIR$/ExtremeWeather.iml" />
       <module fileurl="file://$PROJECT_DIR$/MagicIndicator/MagicIndicator.iml" filepath="$PROJECT_DIR$/MagicIndicator/MagicIndicator.iml" />
       <module fileurl="file://$PROJECT_DIR$/PullRefreshLib/PullRefreshLib.iml" filepath="$PROJECT_DIR$/PullRefreshLib/PullRefreshLib.iml" />

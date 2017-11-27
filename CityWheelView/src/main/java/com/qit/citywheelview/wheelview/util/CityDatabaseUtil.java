@@ -13,10 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 项目名称：ECanal
- * 作者：王开波
+ *
+ *
  * 邮箱：568966289@qq.com
- * 公司：山东宇易信息科技
+ *
  * 创建时间：2017/4/17 10:58
  * 备注：城市数据库操作类
  */

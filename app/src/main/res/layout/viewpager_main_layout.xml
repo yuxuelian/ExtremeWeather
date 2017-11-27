@@ -30,7 +30,7 @@
             app:ptr_ratio_of_header_height_to_refresh="1.2"
             app:ptr_resistance="1.7">
 
-            <com.as.weather.custom.view.ObservableScrollView
+            <com.base.customview.ObservableScrollView
                 android:id="@+id/observable_scroll_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -58,7 +58,7 @@
                     <!--生活指数-->
                     <include layout="@layout/index_of_living_layout" />
                 </LinearLayout>
-            </com.as.weather.custom.view.ObservableScrollView>
+            </com.base.customview.ObservableScrollView>
         </com.as.pullrefreshlib.PtrClassicFrameLayout>
     </LinearLayout>
 </FrameLayout>

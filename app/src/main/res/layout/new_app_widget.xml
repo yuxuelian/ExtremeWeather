@@ -264,7 +264,6 @@
                 android:text="15°/3°"
                 android:textColor="#FFF"
                 android:textSize="12sp" />
-
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

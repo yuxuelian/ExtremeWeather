@@ -2,64 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
     android:gravity="center_vertical"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="本科毕业设计"
-        android:textColor="@android:color/holo_red_dark"
-        android:textSize="30sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:text="基于Android的极速天气软件设计"
-        android:textColor="@android:color/holo_red_dark"
-        android:textSize="20sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_marginRight="35dp"
-        android:layout_marginTop="50dp"
-        android:text="作者：王开波"
-        android:textColor="@android:color/holo_red_dark"
-        android:textSize="20sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_marginRight="35dp"
-        android:layout_marginTop="10dp"
-        android:text="指导老师：付海燕"
-        android:textColor="@android:color/holo_red_dark"
-        android:textSize="20sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_marginRight="35dp"
-        android:layout_marginTop="10dp"
-        android:text="2017年6月"
-        android:textColor="@android:color/holo_red_dark"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/wait_tv"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp"
-        android:text="APP正在启动,请稍后..."
-        android:textColor="@android:color/holo_red_dark"
-        android:textSize="20sp" />
 </LinearLayout>

@@ -1,1 +1,1 @@
-include ':app', ':SlidingMenu', ':MagicIndicator', ':PullRefreshLib', ':CityWheelView'
+include ':app', ':SlidingMenu', ':MagicIndicator', ':PullRefreshLib', ':CityWheelView', ':CustomView'

@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/CityWheelView" />
+            <option value="$PROJECT_DIR$/CustomView" />
             <option value="$PROJECT_DIR$/MagicIndicator" />
             <option value="$PROJECT_DIR$/PullRefreshLib" />
             <option value="$PROJECT_DIR$/SlidingMenu" />
