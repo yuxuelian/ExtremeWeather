@@ -10,8 +10,9 @@ import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.base.customview.util.DisplayUtil;
+
 /**
- *
  * @author 56896
  * @date 2016/12/3
  * 自定义的view 显示温度的走势图
@@ -28,15 +29,11 @@ public class LineChartView extends View {
     private Paint mPaint1;
     private Paint mPaint2;
 
-    private Paint mPaint;
-
     private TextPaint mTextPaint;
 
-    private int mCircleSize;
-    private int mLineWidth;
+    private float mCircleSize;
 
-    private float measureWidth;
-    private float measureHeight;
+    private float drawHeight;
     private float setupWidth;
     private float halfSetupWidth;
 
@@ -44,8 +41,7 @@ public class LineChartView extends View {
     private Path path1;
     private Path path2;
 
-    //用于测量文字的宽度
-    private Rect rect;
+    private Context mContext;
 
     public LineChartView(Context context) {
         this(context, null);
@@ -61,41 +57,37 @@ public class LineChartView extends View {
     }
 
     private void init(Context context) {
+        this.mContext = context;
+
         //线宽
-        mCircleSize = dip2px(context, 3);
-        mLineWidth = dip2px(context, 2);
+        mCircleSize = DisplayUtil.dp2px(context, 3);
+        float mLineWidth = DisplayUtil.dp2px(context, 2);
 
         maxTemp = getArrayMax(maxTemps);
         minTemp = getArrayMin(minTemps);
 
         path1 = new Path();
         path2 = new Path();
-        rect = new Rect();
 
-        mPaint = new Paint();
-        mPaint.setColor(Color.RED);
-        mPaint.setStrokeWidth(1);
-
-        //画最高温度的线
+        //画最高温度的线的画笔
         mPaint1 = new Paint();
         mPaint1.setAntiAlias(true);
         mPaint1.setStrokeWidth(mLineWidth);
         mPaint1.setStyle(Paint.Style.FILL);
         mPaint1.setColor(Color.argb(0xff, 249, 192, 0));
 
-        //画最低温度的线
+        //画最低温度的线的画笔
         mPaint2 = new Paint();
         mPaint2.setAntiAlias(true);
         mPaint2.setStrokeWidth(mLineWidth);
         mPaint2.setStyle(Paint.Style.FILL);
         mPaint2.setColor(Color.argb(0xff, 114, 171, 248));
 
-        //画文字
+        //画文字的画笔
         mTextPaint = new TextPaint();
         mTextPaint.setAntiAlias(true);
-        mTextPaint.setTextSize(30);
+        mTextPaint.setTextSize(DisplayUtil.sp2px(context, 12));
         mTextPaint.setColor(Color.WHITE);
-
     }
 
     @Override
@@ -105,47 +97,58 @@ public class LineChartView extends View {
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
         int heightSize = MeasureSpec.getSize(heightMeasureSpec);
 
-        int width;
-        int height;
+        int width = 0;
+        int height = 0;
 
         switch (widthMode) {
             case MeasureSpec.AT_MOST:
                 //自己声明任意的大小
+                width = this.getLayoutParams().width;
                 break;
             case MeasureSpec.EXACTLY:
                 //父容器指定大小
+                width = widthSize;
                 break;
             case MeasureSpec.UNSPECIFIED:
                 //父容器没有对我有任何限制
+                break;
+            default:
                 break;
         }
 
         switch (heightMode) {
             case MeasureSpec.AT_MOST:
+                height = this.getLayoutParams().height;
                 break;
             case MeasureSpec.EXACTLY:
+                height = heightSize;
                 break;
             case MeasureSpec.UNSPECIFIED:
                 break;
+            default:
+                break;
         }
-        setMeasuredDimension(widthSize, heightSize + getPaddingTop() + getPaddingBottom());
+
+        setMeasuredDimension(width, height);
+
         //获取测量后的宽高
-        measureWidth = getMeasuredWidth();
-        measureHeight = getMeasuredHeight();
+        float drawWidth = getMeasuredWidth();
+        drawHeight = getMeasuredHeight();
+
         //获取宽度的步长
-        setupWidth = measureWidth / 6f;
+        setupWidth = drawWidth / 6f;
         halfSetupWidth = setupWidth / 2f;
     }
 
+
     @Override
     protected void onDraw(Canvas canvas) {
-        //绘制坐标系
-        //循环次数
-        int widthNum = 6;
-        String s;
+        String tempText;
+
+        drawHeight -= DisplayUtil.dp2px(mContext, 12);
 
         //更新高度方向的步进
-        float setupHeight = (measureHeight - 120) / (maxTemp - minTemp);
+        float setupHeight = drawHeight / (maxTemp - minTemp);
 
         path1.reset();
         path2.reset();
@@ -157,22 +160,39 @@ public class LineChartView extends View {
         //设置画笔为实心
         mPaint1.setStyle(Paint.Style.FILL);
         mPaint2.setStyle(Paint.Style.FILL);
+
+        Rect rect = new Rect();
+
         //画竖线
-        for (int i = 0; i < widthNum; i++) {
+        for (int i = 0; i < 6; i++) {
+
             x = i * setupWidth + halfSetupWidth;
-            y1 = 50 + setupHeight * getChangeTemp(maxTemps[i]);
 
-            s = maxTemps[i] + "°";
-            mTextPaint.getTextBounds(s, 0, s.length() - 1, rect);
-            canvas.drawText(s, x - rect.width() / 1.5f, y1 - 15, mTextPaint);
+            y1 = setupHeight * getChangeTemp(maxTemps[i]) + DisplayUtil.dp2px(mContext, 6);
+            y2 = setupHeight * getChangeTemp(minTemps[i]) + DisplayUtil.dp2px(mContext, 6);
 
-            y2 = 50 + setupHeight * getChangeTemp(minTemps[i]);
-            s = minTemps[i] + "°";
-            mTextPaint.getTextBounds(s, 0, s.length() - 1, rect);
-            canvas.drawText(s, x - rect.width() / 1.5f, y2 + 35, mTextPaint);
+            //绘制最高温度  Text
+            tempText = maxTemps[i] + "°";
+            mTextPaint.getTextBounds(tempText, 0, tempText.length(), rect);
+            canvas.drawText(
+                    tempText,
+                    x - rect.width() / 2,
+                    y1 + DisplayUtil.dp2px(mContext, 14),
+                    mTextPaint);
 
+            //绘制最低温度  Text
+            tempText = minTemps[i] + "°";
+            mTextPaint.getTextBounds(tempText, 0, tempText.length(), rect);
+            canvas.drawText(
+                    tempText,
+                    x - rect.width() / 2,
+                    y2 - DisplayUtil.dp2px(mContext, 5),
+                    mTextPaint);
+
+            //绘制折线的拐点的圆点
             canvas.drawCircle(x, y1, mCircleSize, mPaint1);
             canvas.drawCircle(x, y2, mCircleSize, mPaint2);
+
             if (i == 0) {
                 path1.moveTo(x, y1);
                 path2.moveTo(x, y2);
@@ -181,10 +201,12 @@ public class LineChartView extends View {
                 path2.lineTo(x, y2);
             }
         }
-        //绘制折线
+
         //设置画笔为空心
         mPaint1.setStyle(Paint.Style.STROKE);
         mPaint2.setStyle(Paint.Style.STROKE);
+
+        //绘制折线
         canvas.drawPath(path1, mPaint1);
         canvas.drawPath(path2, mPaint2);
     }
@@ -235,10 +257,5 @@ public class LineChartView extends View {
         //更新最大值
         minTemp = getArrayMin(minTemps);
         invalidate();
-    }
-
-    private int dip2px(Context context, double dpValue) {
-        float density = context.getResources().getDisplayMetrics().density;
-        return (int) (dpValue * density + 0.5);
     }
 }
