@@ -229,7 +229,7 @@ public class SlidingMenuFragment extends Fragment
         mAttachActivity = null;
     }
 
-    class ViewHolder {
+    public static class ViewHolder {
 
         @BindView(R.id.list_city)
         RecyclerView listCity;

@@ -39,21 +39,22 @@
             android:layout_gravity="center_vertical"
             android:scaleType="centerInside"
             android:src="@drawable/ic_minus"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <ImageView
             android:id="@+id/template_shi"
             android:layout_width="40dp"
             android:layout_height="60dp"
             android:scaleType="centerInside"
-            android:src="@drawable/number_1" />
+            android:src="@drawable/number_1"
+            android:visibility="gone" />
 
         <ImageView
             android:id="@+id/template_ge"
             android:layout_width="40dp"
             android:layout_height="60dp"
             android:scaleType="centerInside"
-            android:src="@drawable/number_2" />
+            android:src="@drawable/number_0" />
 
         <ImageView
             android:layout_width="25dp"

@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.base.weather.R;
+import com.base.weather.activity.base.BaseActivity;
 import com.base.weather.contract.BasePresenter;
 import com.base.weather.util.StatusBarUtil;
 
@@ -17,11 +18,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
-
 /**
  * Created by 56896 on 2016/11/28.
  */
-public class SettingActivity extends BaseActivity implements View.OnClickListener {
+public class SettingActivity extends BaseActivity {
 
     @BindView(R.id.action_back)
     ImageView actionBack;
@@ -32,7 +32,6 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     public static void start(Activity context) {
         Intent intent = new Intent(context, SettingActivity.class);
         context.startActivity(intent);
-        context.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
     @Override
@@ -49,10 +48,12 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     }
 
     @OnClick({R.id.action_back})
-    public void onClick(View view) {
+    public void onButtonClick(View view) {
         switch (view.getId()) {
             case R.id.action_back:
                 onBackPressed();
+                break;
+            default:
                 break;
         }
     }

@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.base.weather.R;
+import com.base.weather.activity.base.BaseActivity;
 import com.base.weather.contract.BasePresenter;
 import com.base.weather.util.StatusBarUtil;
 
@@ -32,7 +33,6 @@ public class AboutActivity extends BaseActivity {
     public static void start(Activity context) {
         Intent intent = new Intent(context, AboutActivity.class);
         context.startActivity(intent);
-        context.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
     @Override

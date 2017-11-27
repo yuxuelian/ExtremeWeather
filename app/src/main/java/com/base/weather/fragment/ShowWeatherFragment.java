@@ -25,6 +25,9 @@ import com.base.weather.MyApplication;
 import com.base.weather.R;
 import com.base.weather.activity.MainActivity;
 import com.base.weather.contract.ShowWeatherContract;
+import com.base.weather.fragment.base.BaseFragment;
+import com.base.weather.helper.UpdateWeatherHelper;
+import com.base.weather.holder.WeatherViewHolder;
 import com.base.weather.model.bean.WeatherBean;
 import com.base.weather.presenter.ShowWeatherPresenterImpl;
 import com.base.weather.util.StatusBarUtil;
@@ -68,7 +71,7 @@ public class ShowWeatherFragment extends BaseFragment<ShowWeatherContract.Presen
     @BindView(R.id.weather_address)
     TextView weatherAddress;
 
-    private UpdateWeatherUI updateWeatherUI;
+    private UpdateWeatherHelper updateWeatherHelper;
 
     //背景模糊度(实际上是透明度)
     private float dim = 0;
@@ -146,7 +149,7 @@ public class ShowWeatherFragment extends BaseFragment<ShowWeatherContract.Presen
         //沉浸式
         userCityRootView.setPadding(0, StatusBarUtil.getStatusBarHeight(mAttachActivity), 0, 0);
 
-        updateWeatherUI = new UpdateWeatherUI(new WeatherViewHolder(view));
+        updateWeatherHelper = new UpdateWeatherHelper(new WeatherViewHolder(view));
 
         //滑动监听
         observableScrollView.setScrollViewListener(this);
@@ -158,10 +161,10 @@ public class ShowWeatherFragment extends BaseFragment<ShowWeatherContract.Presen
         this.initPullToRefresh();
 
         //更新多天星期显示
-        updateWeatherUI.updateWeek();
+        updateWeatherHelper.updateWeek();
 
         //更新多天日期显示
-        updateWeatherUI.updateDate();
+        updateWeatherHelper.updateDate();
 
         //显示城市
         weatherAddress.setText(cityText);
@@ -252,7 +255,7 @@ public class ShowWeatherFragment extends BaseFragment<ShowWeatherContract.Presen
             Toast.makeText(mAttachActivity, "键不能用", Toast.LENGTH_SHORT).show();
         } else {
             presenter.saveWeatherBeanCache(mAttachActivity, cityId, weatherBean);
-            updateWeatherUI.update(weatherBean);
+            updateWeatherHelper.update(weatherBean);
             //TODO 更新侧滑中对应条目的天气信息
 
             mAttachActivity.updateSlidingMenuList(cityId, weatherBean);

@@ -5,9 +5,6 @@
     <color name="colorAccent">#FF4081</color>
 
     <!--透明色-->
-
     <color name="half_transparent">#30000000</color>
-
-    <color name="themeColor">#34CDB8</color>
-
+    <color name="themeColor">#FFF</color>
 </resources>

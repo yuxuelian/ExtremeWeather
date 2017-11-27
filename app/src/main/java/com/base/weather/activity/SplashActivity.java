@@ -7,6 +7,7 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 
 import com.base.weather.R;
+import com.base.weather.activity.base.BaseActivity;
 import com.base.weather.contract.BasePresenter;
 
 import butterknife.ButterKnife;

@@ -1,7 +1,8 @@
-package com.base.weather.fragment;
+package com.base.weather.helper;
 
 import android.view.View;
 
+import com.base.weather.holder.WeatherViewHolder;
 import com.base.weather.model.bean.WeatherBean;
 import com.base.weather.util.DateUtil;
 import com.base.weather.util.UpdateUIUtil;
@@ -12,21 +13,19 @@ import java.util.List;
 /**
  *
  * 邮箱：568966289@qq.com
- *
  * 创建时间：2017/3/27
- * <p>
  * 用于更新UI
- * <p>
  * 更新UI帮助类
+ * @author Administrator
  */
 
-public class UpdateWeatherUI {
+public class UpdateWeatherHelper {
 
     private static final String[] Week = new String[]{"周一", "周二", "周三", "周四", "周五", "周六", "周日"};
 
     private WeatherViewHolder viewHolder;
 
-    public UpdateWeatherUI(WeatherViewHolder viewHolder) {
+    public UpdateWeatherHelper(WeatherViewHolder viewHolder) {
         this.viewHolder = viewHolder;
     }
 

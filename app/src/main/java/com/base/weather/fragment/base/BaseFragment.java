@@ -1,4 +1,4 @@
-package com.base.weather.fragment;
+package com.base.weather.fragment.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
