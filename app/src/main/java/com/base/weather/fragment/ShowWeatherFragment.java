@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -33,10 +34,11 @@ import com.base.weather.presenter.ShowWeatherPresenterImpl;
 import com.base.weather.util.StatusBarUtil;
 import com.base.weather.util.bitmap.BitmapBlurUtil;
 import com.base.weather.util.bitmap.BitmapFileUtil;
-import com.orhanobut.logger.Logger;
+import com.base.weather.util.bitmap.ScreenSortUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * @author 56896
@@ -70,6 +72,11 @@ public class ShowWeatherFragment extends BaseFragment<ShowWeatherContract.Presen
     //当前城市
     @BindView(R.id.weather_address)
     TextView weatherAddress;
+
+    //当前城市
+    @BindView(R.id.weather_root_view)
+    FrameLayout weatherRootView;
+
 
     private UpdateWeatherHelper updateWeatherHelper;
 
@@ -133,6 +140,20 @@ public class ShowWeatherFragment extends BaseFragment<ShowWeatherContract.Presen
     @Override
     protected ShowWeatherContract.Presenter createPresenter() {
         return new ShowWeatherPresenterImpl(this);
+    }
+
+    @OnClick({
+            R.id.template_weather_update_time
+    })
+    public void onButtonClick(View view) {
+        switch (view.getId()) {
+            case R.id.template_weather_update_time:
+                Bitmap bitmap = ScreenSortUtil.screenSort(getActivity().getWindow().getDecorView());
+                BitmapFileUtil.saveBitmap(bitmap, MyApplication.CACHE_DIR, System.currentTimeMillis() + ".png");
+                break;
+            default:
+                break;
+        }
     }
 
 
@@ -246,9 +267,6 @@ public class ShowWeatherFragment extends BaseFragment<ShowWeatherContract.Presen
 
     @Override
     public void updateWeatherUI(WeatherBean weatherBean) {
-
-        Logger.d(weatherBean);
-
         if (weatherBean.getHeWeather5().get(0).getStatus().equals("unknown city")) {
             Toast.makeText(mAttachActivity, String.format("服务器没有城市[%s]对应的天气信息", cityText), Toast.LENGTH_SHORT).show();
         } else if (weatherBean.getHeWeather5().get(0).getStatus().equals("invalid key")) {

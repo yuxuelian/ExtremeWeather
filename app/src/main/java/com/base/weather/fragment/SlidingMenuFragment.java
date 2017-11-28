@@ -106,7 +106,7 @@ public class SlidingMenuFragment extends Fragment
             viewHolder.slidingMainView.post(new Runnable() {
                 @Override
                 public void run() {
-                    Bitmap blur = BitmapBlurUtil.blur(10, 25, getContext(), BitmapFactory.decodeResource(getResources(), R.drawable.sliding_menu_bg), viewHolder.slidingMainView);
+                    Bitmap blur = BitmapBlurUtil.blur(10, 25, getContext(), BitmapFactory.decodeResource(getResources(), R.drawable.wallpaper_0), viewHolder.slidingMainView);
                     viewHolder.slidingMainView.setBackground(new BitmapDrawable(getResources(), blur));
                     BitmapFileUtil.saveBitmap(blur, MyApplication.CACHE_DIR, SLIDING_BG_NAME);
                 }

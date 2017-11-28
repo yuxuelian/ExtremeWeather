@@ -10,7 +10,8 @@ import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.base.customview.util.DisplayUtil;
+import com.base.customview.utils.DisplayUtil;
+
 
 /**
  * @author 56896
@@ -20,6 +21,9 @@ import com.base.customview.util.DisplayUtil;
 
 public class LineChartView extends View {
 
+    /**
+     * 两个默认值
+     */
     private int[] maxTemps = new int[]{13, 14, 13, 6, 10, 9};
     private int[] minTemps = new int[]{4, 5, 1, -3, 3, -2};
 
@@ -37,11 +41,18 @@ public class LineChartView extends View {
     private float setupWidth;
     private float halfSetupWidth;
 
-    //用于绘制折线
+    /**
+     * 用于绘制折线路径
+     */
     private Path path1;
     private Path path2;
 
     private Context mContext;
+
+    /**
+     * 数组长度  默认是6
+     */
+    private int mLength = maxTemps.length;
 
     public LineChartView(Context context) {
         this(context, null);
@@ -130,22 +141,12 @@ public class LineChartView extends View {
         }
 
         setMeasuredDimension(width, height);
-
-        //获取测量后的宽高
-        float drawWidth = getMeasuredWidth();
-        drawHeight = getMeasuredHeight();
-
-        //获取宽度的步长
-        setupWidth = drawWidth / 6f;
-        halfSetupWidth = setupWidth / 2f;
     }
-
 
     @Override
     protected void onDraw(Canvas canvas) {
-        String tempText;
 
-        drawHeight -= DisplayUtil.dp2px(mContext, 12);
+        getWidthAndHeight();
 
         //更新高度方向的步进
         float setupHeight = drawHeight / (maxTemp - minTemp);
@@ -164,15 +165,18 @@ public class LineChartView extends View {
         Rect rect = new Rect();
 
         //画竖线
-        for (int i = 0; i < 6; i++) {
-
+        for (int i = 0; i < mLength; i++) {
+            //计算坐标
             x = i * setupWidth + halfSetupWidth;
-
             y1 = setupHeight * getChangeTemp(maxTemps[i]) + DisplayUtil.dp2px(mContext, 6);
             y2 = setupHeight * getChangeTemp(minTemps[i]) + DisplayUtil.dp2px(mContext, 6);
 
+            //绘制折线的拐点的圆点
+            canvas.drawCircle(x, y1, mCircleSize, mPaint1);
+            canvas.drawCircle(x, y2, mCircleSize, mPaint2);
+
             //绘制最高温度  Text
-            tempText = maxTemps[i] + "°";
+            String tempText = maxTemps[i] + "°";
             mTextPaint.getTextBounds(tempText, 0, tempText.length(), rect);
             canvas.drawText(
                     tempText,
@@ -189,10 +193,7 @@ public class LineChartView extends View {
                     y2 - DisplayUtil.dp2px(mContext, 5),
                     mTextPaint);
 
-            //绘制折线的拐点的圆点
-            canvas.drawCircle(x, y1, mCircleSize, mPaint1);
-            canvas.drawCircle(x, y2, mCircleSize, mPaint2);
-
+            //记录路径
             if (i == 0) {
                 path1.moveTo(x, y1);
                 path2.moveTo(x, y2);
@@ -209,6 +210,21 @@ public class LineChartView extends View {
         //绘制折线
         canvas.drawPath(path1, mPaint1);
         canvas.drawPath(path2, mPaint2);
+    }
+
+    /**
+     * 获取宽度和高度,并重新计算值
+     */
+    private void getWidthAndHeight() {
+        int drawWidth = getMeasuredWidth();
+
+        //获取宽度的步长
+        setupWidth = (float) (drawWidth / mLength);
+        halfSetupWidth = setupWidth / 2f;
+
+        drawHeight = getMeasuredHeight();
+
+        drawHeight -= DisplayUtil.dp2px(mContext, 12);
     }
 
     //坐标变换
@@ -247,6 +263,10 @@ public class LineChartView extends View {
 
     public void setMaxTemps(int[] maxTemps) {
         this.maxTemps = maxTemps;
+
+        //更新长度
+        mLength = maxTemps.length;
+
         //更新最大值
         maxTemp = getArrayMax(maxTemps);
         invalidate();

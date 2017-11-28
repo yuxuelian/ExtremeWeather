@@ -365,7 +365,7 @@ public class MainActivity extends SlidingBaseActivity<MainContract.Presenter> im
                 }
                 break;
             case R.id.main_action_share:
-                Toast.makeText(this, "分享", Toast.LENGTH_SHORT).show();
+
                 break;
             default:
                 break;
