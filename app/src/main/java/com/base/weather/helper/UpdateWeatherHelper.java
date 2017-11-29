@@ -11,11 +11,11 @@ import java.util.Calendar;
 import java.util.List;
 
 /**
- *
  * 邮箱：568966289@qq.com
  * 创建时间：2017/3/27
  * 用于更新UI
  * 更新UI帮助类
+ *
  * @author Administrator
  */
 
@@ -90,6 +90,7 @@ public class UpdateWeatherHelper {
         if (t >= 0) {
             templateMsg.templateOperator.setVisibility(View.GONE);
         } else {
+            t = -t;
             templateMsg.templateOperator.setVisibility(View.VISIBLE);
         }
         int shi = t / 10;
