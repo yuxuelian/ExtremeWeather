@@ -23,6 +23,10 @@ public class ShowWeatherModelImpl implements ShowWeatherContract.Model {
         RequestDataModel<WeatherBean> requestDataModel = new RequestDataModel<>(callBack, WeatherBean.class);
         Map<String, String> parameters = new HashMap<>();
         parameters.put("url", API.WEATHER_URL);
+
+        //请求方式  GET
+        parameters.put("method", "GET");
+
         parameters.put("key", API.KEY);
         parameters.put("city", cityID);
         requestDataModel.execute(parameters);

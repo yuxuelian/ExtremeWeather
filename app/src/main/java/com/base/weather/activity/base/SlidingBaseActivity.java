@@ -1,5 +1,6 @@
-package com.base.weather.activity;
+package com.base.weather.activity.base;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -40,6 +41,8 @@ public abstract class SlidingBaseActivity<T extends BasePresenter> extends Slidi
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        //固定竖屏
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState);
         StatusBarUtil.setStatusBarAlpha(getWindow(), 0);
 

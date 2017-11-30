@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.base.weather.R;
+import com.base.weather.activity.base.SlidingBaseActivity;
 import com.base.weather.adapter.FragmentAdapter;
 import com.base.weather.contract.MainContract;
 import com.base.weather.fragment.ShowWeatherFragment;

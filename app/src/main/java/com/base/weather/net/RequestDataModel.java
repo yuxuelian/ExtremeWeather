@@ -9,6 +9,8 @@ import com.orhanobut.logger.Logger;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
@@ -36,40 +38,66 @@ public class RequestDataModel<T> extends AsyncTask<Map<String, String>, Integer,
     }
 
     @Override
-    protected T doInBackground(Map<String, String>... parameters) {
-        Map<String, String> parameter = parameters[0];
+    protected T doInBackground(Map<String, String>... inputParameters) {
+        Map<String, String> mapParameter = inputParameters[0];
 
         //取得URL
-        String url = parameter.get("url");
-
+        String url = mapParameter.get("url");
         //移除
-        parameter.remove("url");
+        mapParameter.remove("url");
 
-        StringBuilder stringBuilder = new StringBuilder(url);
+        //取得请求方式
+        String method = mapParameter.get("method");
+        //移除请求方式
+        mapParameter.remove("method");
 
-        stringBuilder.append('?');
 
-        //拼接参数
-        for (HashMap.Entry<String, String> entry : parameter.entrySet()) {
-            stringBuilder
+        StringBuilder parameterString = new StringBuilder();
+        //遍历map拼接参数
+        for (HashMap.Entry<String, String> entry : mapParameter.entrySet()) {
+            parameterString
                     .append(entry.getKey())
                     .append('=')
                     .append(entry.getValue())
                     .append('&');
         }
+        String stringParameter = parameterString.toString();
 
-        String url1 = stringBuilder.toString();
-
-        Logger.e(url1);
+        String url1;
+        if ("get".equals(method.toLowerCase())) {
+            url1 = url + "?" + stringParameter;
+            method = "GET";
+            Logger.d(url1);
+        } else if ("post".equals(method.toLowerCase())) {
+            url1 = url;
+            method = "POST";
+        } else {
+            //TODO 其他请求方式
+            url1 = url;
+        }
 
         HttpURLConnection urlConnection = null;
         try {
             URL u = new URL(url1);
             urlConnection = (HttpURLConnection) u.openConnection();
-            urlConnection.setRequestMethod("GET");
+            urlConnection.setRequestMethod(method);
             urlConnection.setConnectTimeout(5000);
             urlConnection.setReadTimeout(5000);
-            urlConnection.connect();
+
+            //post请求方式传输数据
+            switch (method) {
+                case "POST":
+                    urlConnection.setDoInput(true);
+                    urlConnection.setDoOutput(true);
+                    OutputStream outputStream = urlConnection.getOutputStream();
+                    PrintWriter printWriter = new PrintWriter(outputStream);
+                    printWriter.write(stringParameter);
+                    printWriter.flush();
+                    break;
+                default:
+                    break;
+            }
+
             if (urlConnection.getResponseCode() == 200) {
                 InputStream inputStream = urlConnection.getInputStream();
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
