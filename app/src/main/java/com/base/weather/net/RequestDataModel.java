@@ -110,6 +110,9 @@ public class RequestDataModel<T> extends AsyncTask<Map<String, String>, Integer,
                 }
 
                 String res = stringBuilder1.toString();
+
+                Logger.d(res);
+
                 return JSON.parseObject(res, weatherBeanClass);
             }
         } catch (Exception e) {

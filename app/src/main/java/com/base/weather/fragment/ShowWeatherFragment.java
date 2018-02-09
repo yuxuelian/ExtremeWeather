@@ -267,10 +267,12 @@ public class ShowWeatherFragment extends BaseFragment<ShowWeatherContract.Presen
 
     @Override
     public void updateWeatherUI(WeatherBean weatherBean) {
-        if (weatherBean.getHeWeather5().get(0).getStatus().equals("unknown city")) {
+        if ("unknown city".equals(weatherBean.getHeWeather5().get(0).getStatus())) {
             Toast.makeText(mAttachActivity, String.format("服务器没有城市[%s]对应的天气信息", cityText), Toast.LENGTH_SHORT).show();
-        } else if (weatherBean.getHeWeather5().get(0).getStatus().equals("invalid key")) {
-            Toast.makeText(mAttachActivity, "键不能用", Toast.LENGTH_SHORT).show();
+        } else if ("invalid key".equals(weatherBean.getHeWeather5().get(0).getStatus())) {
+            Toast.makeText(mAttachActivity, "key不能用", Toast.LENGTH_SHORT).show();
+        } else if ("no more requests".equals(weatherBean.getHeWeather5().get(0).getStatus())) {
+            Toast.makeText(mAttachActivity, "接口无法使用", Toast.LENGTH_SHORT).show();
         } else {
             presenter.saveWeatherBeanCache(mAttachActivity, cityId, weatherBean);
             updateWeatherHelper.update(weatherBean);
