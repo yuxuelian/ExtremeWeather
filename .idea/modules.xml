@@ -3,19 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CityWheelView/CityWheelView.iml" filepath="$PROJECT_DIR$/CityWheelView/CityWheelView.iml" />
-      <module fileurl="file://D:\GitHubDemo\ExtremeWeather\CityWheelView\CityWheelView.iml" filepath="D:\GitHubDemo\ExtremeWeather\CityWheelView\CityWheelView.iml" />
       <module fileurl="file://$PROJECT_DIR$/CustomView/CustomView.iml" filepath="$PROJECT_DIR$/CustomView/CustomView.iml" />
-      <module fileurl="file://D:\GitHubDemo\ExtremeWeather\CustomView\CustomView.iml" filepath="D:\GitHubDemo\ExtremeWeather\CustomView\CustomView.iml" />
       <module fileurl="file://$PROJECT_DIR$/ExtremeWeather.iml" filepath="$PROJECT_DIR$/ExtremeWeather.iml" />
-      <module fileurl="file://D:\GitHubDemo\ExtremeWeather\ExtremeWeather.iml" filepath="D:\GitHubDemo\ExtremeWeather\ExtremeWeather.iml" />
       <module fileurl="file://$PROJECT_DIR$/MagicIndicator/MagicIndicator.iml" filepath="$PROJECT_DIR$/MagicIndicator/MagicIndicator.iml" />
-      <module fileurl="file://D:\GitHubDemo\ExtremeWeather\MagicIndicator\MagicIndicator.iml" filepath="D:\GitHubDemo\ExtremeWeather\MagicIndicator\MagicIndicator.iml" />
       <module fileurl="file://$PROJECT_DIR$/PullRefreshLib/PullRefreshLib.iml" filepath="$PROJECT_DIR$/PullRefreshLib/PullRefreshLib.iml" />
-      <module fileurl="file://D:\GitHubDemo\ExtremeWeather\PullRefreshLib\PullRefreshLib.iml" filepath="D:\GitHubDemo\ExtremeWeather\PullRefreshLib\PullRefreshLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/SlidingMenu/SlidingMenu.iml" filepath="$PROJECT_DIR$/SlidingMenu/SlidingMenu.iml" />
-      <module fileurl="file://D:\GitHubDemo\ExtremeWeather\SlidingMenu\SlidingMenu.iml" filepath="D:\GitHubDemo\ExtremeWeather\SlidingMenu\SlidingMenu.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\GitHubDemo\ExtremeWeather\app\app.iml" filepath="D:\GitHubDemo\ExtremeWeather\app\app.iml" />
     </modules>
   </component>
 </project>

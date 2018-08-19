@@ -43,7 +43,7 @@
 
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="e8d233b004338fa2806e3c50211957b5" />
+            android:value="ab5a1bd873e817a373bd92a262600d22" />
 
         <activity android:name=".activity.SplashActivity"
             android:theme="@style/AppTheme.Splash">
