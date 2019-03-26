@@ -141,7 +141,7 @@ public class UpdateWeatherHelper {
         List<WeatherBean.HeWeather5Bean.DailyForecastBean> daily_forecast = weatherBean.getHeWeather5().get(0).getDaily_forecast();
         int[] maxTemps = new int[6];
         int[] minTemps = new int[6];
-        for (int i = 1; i < 7; i++) {
+        for (int i = 1; i < 3; i++) {
             WeatherBean.HeWeather5Bean.DailyForecastBean dailyForecastBean = daily_forecast.get(i);
             String max = dailyForecastBean.getTmp().getMax();
             maxTemps[i - 1] = Integer.parseInt(max);
@@ -155,7 +155,7 @@ public class UpdateWeatherHelper {
         weatherWeek.weatherWeekLineChartView.setMinTemps(minTemps);
 
         //白天
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 2; i++) {
             WeatherBean.HeWeather5Bean.DailyForecastBean dailyForecastBean = daily_forecast.get(i + 1);
             String code_d = dailyForecastBean.getCond().getCode_d();
             int weatherIconD = UpdateUIUtil.getWeatherIcon(code_d, true);
